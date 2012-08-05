@@ -1,0 +1,58 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+
+
+
+.importantText {
+    font-weight: bold;
+}
+#voteContainer div {
+    display: inline-block;
+}
+#ratingDisplayContainer {
+    padding: 0px 10px;
+    vertical-align: middle;
+}
+.rating.progress {
+    width: 200px;
+    height: 30px;
+    margin-bottom: 0px;
+}
+
+#voteContainer .progress .bar{
+    height: 30px;
+}
+.progress .bar[ratingVal="-4"] {
+    width: 0%;
+}
+.progress .bar[ratingVal="-3"] {
+    width: 12.5%;
+}
+.progress .bar[ratingVal="-2"] {
+    width: 25%;
+}
+.progress .bar[ratingVal="-1"] {
+    width: 37.5%;
+}
+.progress .bar[ratingVal="0"] {
+    width: 50%;
+}
+.progress .bar[ratingVal="1"] {
+    width: 62.5%;
+}
+.progress .bar[ratingVal="2"] {
+    width: 75%;
+}
+.progress .bar[ratingVal="3"] {
+    width: 87.5%;
+}
+.progress .bar[ratingVal="4"] {
+    width: 100%;
+}
