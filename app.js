@@ -34,36 +34,47 @@ app.configure('development', function(){
 app.get('/', routes.index);
 
 app.get('/session', function(req, res){
-    console.log("SessionID: " + req.cookies['SESSIONID']);
-
-    io.sockets.in(req.sessionID).send("Good to see you back!");
-    
+    console.log("SessionID: " + req.sessionID);
     res.render('index', { title: 'Be Heard Yo.', rating: 0, lowLabel: "Too Slow", highLabel: "Too Fast" });
 });
 
 // hack alert
 var count = 0;
 var people = [];
-
 io.sockets.on('connection', function (socket) {
     console.log("CONNECTED!!!");
     
-    console.log("val: " + count);
-    
+    // emit initial count
     socket.emit('count', { value: count });
     
     socket.on('count', function (msg) {
-        console.log("Server recieved message with value: " + msg.value);
         count = msg.value;
-        console.log("Server emitting message with value: " + count);
+        console.log("Server recieved a count message with value: " + count);
         io.sockets.emit('count', { value: count });
     });
     
     socket.on('people', function (msg) {
         var name = msg.name;
+        // set user's name associated to socket
+        console.log("Server recieved a people message with user: " + name);
+        socket.set('user', name, function () { socket.emit("ready") });
+        // add user to list of people in the session and emit
         people = people.concat(name);
-        console.log("Server emitting message with people: " + people);
         io.sockets.emit('people', { list: people });
+    });
+    
+    socket.on('disconnect', function () {
+        socket.get('user', function (err, disconnectedUser) {
+            console.log('This user disconnected: ', disconnectedUser);
+            // remove disconnected users from collaborators list
+            for (var i=people.length-1; i>=0; i--) {
+                if (people[i] === disconnectedUser) {
+                    people.splice(i, 1);
+                }
+            }
+            // emit updated list of people
+            io.sockets.emit('people', { list: people });
+        });
     });
 });
 
