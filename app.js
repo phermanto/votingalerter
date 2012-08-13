@@ -35,7 +35,7 @@ app.get('/', routes.index);
 
 app.get('/session', function(req, res){
     console.log("SessionID: " + req.sessionID);
-    res.render('index', { title: 'Be Heard Yo.', rating: 0, lowLabel: "Too Slow", highLabel: "Too Fast" });
+    res.render('index', { title: 'Be Heard', rating: 0, lowLabel: "Too Slow", highLabel: "Too Fast" });
 });
 
 // hack alert

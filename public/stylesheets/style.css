@@ -1,6 +1,7 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  text-align: center;
 }
 
 a {
@@ -9,12 +10,18 @@ a {
 
 
 
-
+.titleContainer {
+    border-bottom: 1px solid #EFECE5;
+}
+.inbody {
+    padding: 10px;
+}
 .importantText {
     font-weight: bold;
 }
 #voteContainer div {
     display: inline-block;
+    text-align: left;
 }
 #ratingDisplayContainer {
     padding: 0px 10px;

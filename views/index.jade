@@ -1,24 +1,22 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
-  #loginContainer
-    span Name
-    input(type="test",name="name",id="username")
-    input(type="button",value="Start Voting!",id="usernameSubmit")
+  .titleContainer
+    h1= title
+  #loginContainer.inbody
+    div
+      input(type="test",name="name",id="username")
+    div
+      input(type="button",value="Start Voting!",id="usernameSubmit")
   
-  #voteContainer
-    input(type="button",value="#{lowLabel}",id="low")
-    
-    #ratingDisplayContainer
-        div.progress.rating
-            div#progressRating.bar(ratingVal=#{rating})
-    
-    
-    
-    input(type="button",value="#{highLabel}",id="high")
-    
-  #peopleContainer
-    .importantText People Voting
-    #peopleList
+  #voteSessionContainer.inbody
+      #voteContainer
+        input(type="button",value="#{lowLabel}",id="low")
+        #ratingDisplayContainer
+            div.progress.rating
+                div#progressRating.bar(ratingVal=#{rating})
+        input(type="button",value="#{highLabel}",id="high")
+        
+      #peopleContainer
+        .importantText People Voting
+        #peopleList
