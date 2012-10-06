@@ -34,10 +34,14 @@ var isInThreshold = function (value) {
 
 var voteLowHandler = function (e) {
     updateCountHandler(-1);
+    $("[id=low]").attr("disabled", "disabled");
+    $("[id=high]").removeAttr("disabled");
 };
 
 var voteHighHandler = function (e) {
     updateCountHandler(1);
+    $("[id=low]").removeAttr("disabled");
+    $("[id=high]").attr("disabled", "disabled")
 };
 var updateCountHandler = function(valueToAdd) {
     var currentRating = getRating();
