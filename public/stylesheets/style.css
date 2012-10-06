@@ -72,6 +72,10 @@ a {
     font-size: 150px;
     font-weight: bold;
     height: 100px;
+    display: none;
+}
+.decision.visible {
+    display: block;
 }
 #tooSlow {
     color: #3FB54D;

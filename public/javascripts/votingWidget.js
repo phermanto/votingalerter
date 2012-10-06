@@ -12,14 +12,15 @@ var updateRating = function (value) {
     var displayElem = $('[ratingval]');
     displayElem.attr("ratingval", value);
     if (value > 0) {
-        $(".decision").hide();
-        $("#tooFast").show();
+        
+        $(".decision").removeClass("visible");
+        $("#tooFast").addClass("visible");
     } else if (value < 0) {
-        $(".decision").hide();
-        $("#tooSlow").show();
+        $(".decision").removeClass("visible");
+        $("#tooSlow").addClass("visible");
     } else {
-        $(".decision").hide();
-        $("#justRight").show();
+        $(".decision").removeClass("visible");
+        $("#justRight").addClass("visible");
     }
 };
 
@@ -34,14 +35,15 @@ var isInThreshold = function (value) {
 
 var voteLowHandler = function (e) {
     updateCountHandler(-1);
-    $("[id=low]").attr("disabled", "disabled");
-    $("[id=high]").removeAttr("disabled");
 };
 
 var voteHighHandler = function (e) {
     updateCountHandler(1);
-    $("[id=low]").removeAttr("disabled");
-    $("[id=high]").attr("disabled", "disabled")
+
+    
+};
+var getNumberParticipants = function (e) {
+    return $("#peopleList div").length;
 };
 var updateCountHandler = function(valueToAdd) {
     var currentRating = getRating();
