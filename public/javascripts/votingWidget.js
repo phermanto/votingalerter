@@ -3,13 +3,24 @@ var highThreshold = 4;
 var socketC;
 
 var getRating = function () {
-    var value = $('#progressRating').attr('ratingval');
+    var value = $('#voteWrapper').attr('ratingval');
     return parseInt(value);
 }
 
 var updateRating = function (value) {
-    var displayElem = $('#progressRating');
+    //var displayElem = $('#voteContainer');
+    var displayElem = $('[ratingval]');
     displayElem.attr("ratingval", value);
+    if (value > 0) {
+        $(".decision").hide();
+        $("#tooFast").show();
+    } else if (value < 0) {
+        $(".decision").hide();
+        $("#tooSlow").show();
+    } else {
+        $(".decision").hide();
+        $("#justRight").show();
+    }
 };
 
 var isInThreshold = function (value) {

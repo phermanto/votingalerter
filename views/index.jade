@@ -10,13 +10,18 @@ block content
       input(type="button",value="Start Voting!",id="usernameSubmit")
   
   #voteSessionContainer.inbody
-      #voteContainer
+      #voteContainer(ratingVal=#{rating})
         input(type="button",value="#{lowLabel}",id="low")
         #ratingDisplayContainer
             div.progress.rating
                 div#progressRating.bar(ratingVal=#{rating})
         input(type="button",value="#{highLabel}",id="high")
-        
-      #peopleContainer
-        .importantText People Voting
-        #peopleList
+      
+      #voteWrapper(ratingVal=#{rating})
+          .decisonWrapper
+            #tooSlow.decision Too Slow
+            #justRight.decision Just Right
+            #tooFast.decision Too Fast
+          #peopleContainer
+            .importantText People Voting
+            #peopleList

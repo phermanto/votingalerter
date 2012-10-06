@@ -4,6 +4,10 @@ body {
   text-align: center;
 }
 
+#voteSessionContainer {
+    line-height: normal;
+}
+
 a {
   color: #00B7FF;
 }
@@ -62,4 +66,67 @@ a {
 }
 .progress .bar[ratingVal="4"] {
     width: 100%;
+}
+
+.decision {
+    font-size: 150px;
+    font-weight: bold;
+    height: 100px;
+}
+#tooSlow {
+    color: #3FB54D;
+}
+#tooFast {
+    color: #D62222;
+}
+#justRight {
+    color: #B8B8B8;
+}
+#voteWrapper {
+    position: relative;
+}
+#voteWrapper[ratingVal="-4"] #tooSlow {
+    opacity: 1;
+}
+#voteWrapper[ratingVal="-3"] #tooSlow {
+    opacity: 0.5;
+}
+#voteWrapper[ratingVal="-2"] #tooSlow {
+    opacity: 0.2;
+}
+#voteWrapper[ratingVal="-1"] #tooSlow {
+    opacity: 0.1;
+}
+#voteWrapper[ratingVal="0"] .decision {
+    opacity: 0;
+}
+#voteWrapper[ratingVal="0"] #justRight {
+    opacity: 1;
+}
+#voteWrapper[ratingVal="1"] #tooFast {
+    opacity: 0.1;
+}
+#voteWrapper[ratingVal="2"] #tooFast {
+    opacity: 0.2;
+}
+#voteWrapper[ratingVal="3"] #tooFast {
+    opacity: 0.5;
+}
+#voteWrapper[ratingVal="4"] #tooFast {
+    opacity: 1;
+}
+
+#peopleContainer {
+    overflow-y: auto;
+    font-size: 13px;
+    color: white;
+    position: absolute;
+    background: rgba(54, 25, 25, .5);
+    top: 25px;
+    left: 41%;
+    height: 150px;
+    width: 200px;
+    padding: 10px;
+    box-shadow: 0 0 20px 5px rgba(54, 25, 25, .5);
+    border-radius: 15px;
 }

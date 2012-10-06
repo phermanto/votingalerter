@@ -9,6 +9,7 @@ var usernameEnteredHandler = function (e) {
     $('#loginContainer').hide();
     $('#voteContainer').show();
     $('#peopleContainer').show();
+    $('#voteWrapper').show();
 };
 
 var updateCollaborators = function (names) {
@@ -23,6 +24,7 @@ $(document).ready(function () {
     $('#usernameSubmit').click(usernameEnteredHandler);
     $('#voteContainer').hide();
     $('#peopleContainer').hide();
+    $('#voteWrapper').hide();
     
     socketL = io.connect('http://localhost:3000');
 
