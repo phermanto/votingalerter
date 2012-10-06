@@ -26,7 +26,7 @@ $(document).ready(function () {
     $('#peopleContainer').hide();
     $('#voteWrapper').hide();
     
-    socketL = io.connect('http://localhost:3000');
+    socketL = io.connect('http://' + window.location.hostname + ':3000');
 
     socketL.on('people', function (data) {
         console.log("Client recieved message with people: " + data.list);

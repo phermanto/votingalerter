@@ -60,7 +60,7 @@ var updateCountHandler = function(valueToAdd) {
 }
 
 $(document).ready(function () {
-    socketC = io.connect('http://localhost:3000');
+    socketC = io.connect('http://' + window.location.hostname + ':3000');
 
     socketC.on('count', function (data) {
         console.log("Client recieved message with value: " + data.value);
